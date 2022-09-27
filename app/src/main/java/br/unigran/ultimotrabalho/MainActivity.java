@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         listDados = findViewById(R.id.listDados);
 
         listTelefone = new ArrayList<>();
-        adapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, listaTelefonica);
+        adapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, listTelefone);
 
         listDados.setAdapter(adapter);
         DB_telefone.listar(listTelefone);

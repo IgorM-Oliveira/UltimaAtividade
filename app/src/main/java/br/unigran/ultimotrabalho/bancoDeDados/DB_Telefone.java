@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.List;
 
+import br.unigran.ultimotrabalho.entidades.Telefone;
+
 public class DB_Telefone {
     private DBHelper db;
     private SQLiteDatabase conexao;
