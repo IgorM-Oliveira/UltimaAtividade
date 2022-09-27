@@ -46,13 +46,10 @@ public class MainActivity extends AppCompatActivity {
         editDataNascimento = findViewById(R.id.editDataNascimento);
         botaoSalvar = findViewById(R.id.botaoSalvar);
         listDados = findViewById(R.id.listDados);
-
         listTelefone = new ArrayList<>();
         adapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, listTelefone);
-
         listDados.setAdapter(adapter);
         DB_telefone.listar(listTelefone);
-
         validarEdicao = false;
 
         acao();
@@ -71,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
                                 telefone = new Telefone();
                                 telefone.setId(listTelefone.get(i).getId());
-
                                 editNome.setText(listTelefone.get(i).getNome());
                                 editTelefone.setText(listTelefone.get(i).getTelefone());
                                 editDataNascimento.setText(listTelefone.get(i).getDataNascimento());
@@ -110,24 +106,19 @@ public class MainActivity extends AppCompatActivity {
                     if (validarEdicao == false) {
                         telefone = new Telefone();
                     }
-
                     telefone.setNome(editNome.getText().toString());
                     telefone.setTelefone(editTelefone.getText().toString());
                     telefone.setDataNascimento(editDataNascimento.getText().toString());
 
                     if (validarEdicao) {
                         DB_telefone.editar(telefone);
-
                         Toast.makeText(MainActivity.this, "Editado com Sucesso!", Toast.LENGTH_LONG).show();
                     } else {
                         DB_telefone.inserir(telefone);
-
                         Toast.makeText(MainActivity.this, "Salvo com Sucesso!", Toast.LENGTH_LONG).show();
                     }
-
                     DB_telefone.listar(listTelefone);
                     adapter.notifyDataSetChanged();
-
                     telefone = null;
                     validarEdicao = false;
                     editNome.setText("");
